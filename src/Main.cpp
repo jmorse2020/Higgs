@@ -2,10 +2,13 @@
 
 int main()
 {
-    Game game( {1200, 800} );
+    Game game( {2000, 1600} );
     while (!game.IsDone())
     {
         game.DrawScene();
+        // game.Update();
+        game.ProcessInput();
+        // game.RestartClock();
     }
     return 0;
 }
