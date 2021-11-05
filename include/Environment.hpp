@@ -4,14 +4,24 @@
 #include <vector>
 
 #include "Player.hpp"
+#include "Body.hpp"
 
 class Environment
 {
 public:
-    void DrawPlayer();
+    Environment();
+    ~Environment();
+    
+    void Update(float l_dt);
+    void CreateBody(sf::Vector2f l_pos, int mass);
+
+
+    std::vector<Body>* GetBodies();
+    Player* GetPlayer();
 
 private:
-    Player player;
+    Player m_player;
+    std::vector<Body> m_bodies;
 
 };
 

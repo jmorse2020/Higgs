@@ -1,8 +1,9 @@
 #include "Game.hpp"
+#include "Constants.hpp"
 
 int main()
 {
-    Game game( {2000, 1600} );
+    Game game(constants::k_winSize);
     while (!game.IsDone())
     {
         game.DrawScene();

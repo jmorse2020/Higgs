@@ -1,8 +1,7 @@
 #include "Game.hpp"
 
-Game::Game(sf::Vector2u l_winSize) : m_done { false }
+Game::Game(sf::Vector2u l_winSize) : m_done{false}, m_environment{}, m_renderer{&m_environment, l_winSize, "Higgs"}
 {
-    m_window.create( { l_winSize.x, l_winSize.y }, "Higgs");
 }
 
 Game::~Game()
@@ -17,22 +16,18 @@ void Game::Reset()
 
 void Game::DrawScene()
 {
-    m_window.clear(sf::Color::Black);
-
-    // Draw Scene Entities
-
-    m_window.display();
+    m_renderer.DrawScene();
 }
 
 void Game::Update()
 {
-
+    m_environment.Update(0.0f);
 }
 
 void Game::ProcessInput()
 {
     sf::Event ev;
-    while (m_window.pollEvent(ev))
+    while (m_renderer.GetWindow()->pollEvent(ev))
     {
         if (ev.type == sf::Event::Closed)
         {

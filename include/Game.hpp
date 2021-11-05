@@ -3,6 +3,9 @@
 
 #include <SFML/Graphics.hpp>
 
+#include "Environment.hpp"
+#include "Renderer.hpp"
+
 class Game
 {
 public:
@@ -20,7 +23,8 @@ public:
 
 private:
     bool m_done;
-    sf::RenderWindow m_window;
+    Environment m_environment;
+    Renderer m_renderer;
 };
 
 #endif

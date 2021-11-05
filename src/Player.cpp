@@ -1,8 +1,26 @@
 #include "Player.hpp"
 
-Player::Player()
+Player::Player() : m_radius(50.0f)
 {
-    m_shape.setFillColor(sf::Color::Red);
-    m_shape.setRadius(100);
-    m_shape.setOrigin(sf::Vector2f(m_shape.getRadius(), m_shape.getRadius()));
+    m_position = {(float)constants::k_winSize.x / 2.0f, (float)constants::k_winSize.y / 2.0f};
+}
+
+Player::~Player()
+{
+
+}
+
+void Player::Move()
+{
+
+}
+
+sf::Vector2f Player::GetPos()
+{
+    return m_position;
+}
+
+float Player::GetRadius()
+{
+    return m_radius;
 }
